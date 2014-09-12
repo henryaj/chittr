@@ -1,9 +1,15 @@
-# myapp.rb
+DataMapper.setup(:default, "postgres://localhost/chittr")
+
 require 'rubygems'
 require 'sinatra/base'
 require 'rack-flash'
+require 'data_mapper'
 require 'haml'
 
+require_relative './models/user'
+
+DataMapper.finalize
+DataMapper.auto_upgrade!
 
 class Chittr < Sinatra::Base
 
