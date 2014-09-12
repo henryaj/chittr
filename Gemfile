@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'ruby'
 gem 'sinatra'
 gem 'haml'
-gem 'rack-flash3'
+gem 'sinatra-flash'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 
