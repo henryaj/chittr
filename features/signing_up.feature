@@ -4,9 +4,8 @@ Feature: Signing up to Chittr
   I want to be able to sign up
 
   Scenario: Visiting the home page
-    Given I am not yet a user
-    When I visit the home page
-    Then I should see 'Sign up'
+    When I am on the home page
+    Then I should see "Sign up"
   
   
   
