@@ -11,6 +11,7 @@ Given(/^I have signed up$/) do
 end
 
 When(/^I fill in my login details$/) do
+  visit '/login'
   fill_in "Username", :with => "henryaj"
   fill_in "Password", :with => "12345"
   page.find(:link_or_button, 'submit')

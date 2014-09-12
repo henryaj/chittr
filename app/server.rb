@@ -46,7 +46,14 @@ class Chittr < Sinatra::Base
 
 	post '/login' do
 		@user = User.first(:username => params[:"Username"])
-		flash.now[:notice] = "Welcome back, #{@user.firstname}"
+		flash.now[:notice] = "Welcome back, #{@user.firstname}."
+		haml :index
+	end
+
+	get '/logout' do
+		@user = User.first(:id => session["user_id"])
+		flash.now[:notice] = "See you later, #{@user.firstname}."
+		session["user_id"] = nil
 		haml :index
 	end
 
