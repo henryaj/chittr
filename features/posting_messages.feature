@@ -16,13 +16,23 @@ Feature: Posting to chittr
     When I follow "Post cheet"
     Then I should be on the new cheet page
 
-  Scenario: Posting a cheet
-  	Given I have signed up
-    And I have signed in
-    And I am on the home page
+  Scenario: On the new cheet page
+  	Given I am a logged in user
     When I follow "Post cheet"
     Then I should see a large text box
     And I should see "Share a thought."
+
+  Scenario: Posting a new cheet
+    Given I am a logged in user
+    And I am on the new cheet page
+    When I fill in "New Cheet" with "Hey, I'm on Chittr!"
+    And I click "Submit"
+    Then I should be on the home page
+    And I should see "Hey, I'm on Chittr!"
+
+  
+  
+  
 
   
   
