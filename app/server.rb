@@ -19,7 +19,7 @@ class Chittr < Sinatra::Base
 	end
 
 	post '/users/new' do
-		# flash[:notice] = "Welcome to chittr, Henry!"
+		flash[:notice] = "Welcome to chittr, Henry!"
 		haml :index
 	end
 
