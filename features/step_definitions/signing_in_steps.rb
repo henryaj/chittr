@@ -10,6 +10,10 @@ Given(/^I have signed up$/) do
   click_on 'submit'
 end
 
+Given(/^I have signed in$/) do
+  step("I fill in my login details")
+end
+
 When(/^I fill in my login details$/) do
   visit '/login'
   fill_in "Username", :with => "henryaj"

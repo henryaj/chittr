@@ -57,6 +57,10 @@ class Chittr < Sinatra::Base
 		haml :index
 	end
 
+	get '/new' do
+		haml :newcheet
+	end
+
 
 run! if app_file == $0
 

@@ -19,6 +19,9 @@ module NavigationHelpers
     when /the login page/
       '/login'
 
+    when /the new cheet page/
+      '/new'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
