@@ -8,6 +8,7 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 require 'haml'
+require 'rack-flash'
 
 Capybara.app = Chittr
 

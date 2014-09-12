@@ -14,13 +14,7 @@ Feature: Signing up to Chittr
 
   Scenario: Filling in the signup form
   	Given I am on the signup page
-  	When I fill in the following:
-	  | First Name            | Henry                  |
-	  | Last Name             | Stanley                |
-	  | Email                 | henry@henrystanley.com |
-	  | Password              | 12345                  |
-	  | Password Confirmation | 12345                  |
-	  And I click 'Submit'
+  	When I fill in and submit the signup form
 	  Then I should see "Welcome to chittr, Henry!"
   
   
