@@ -18,6 +18,9 @@ class Chittr < Sinatra::Base
 	register Sinatra::Flash
 
 	get '/' do
+		current_uid = session['user_id']
+		current_user = User.first(:id => current_uid)
+		@user = current_user
 	  haml :index
 	end
 
@@ -26,20 +29,27 @@ class Chittr < Sinatra::Base
 	end
 
 	post '/users/new' do
-		user = User.create(:firstname => params[:"First Name"],
+		@user = User.create(:firstname => params[:"First Name"],
 											 :lastname => params[:"Last Name"],
 											 :email => params[:"Email"],
 											 :username => params[:"Username"],
 											 :password => params[:"Password"],
 											 :password_confirmation => params[:"Password Confirmation"])
-		session["user_id"] = user.id
-		flash.now[:notice] = "Welcome to chittr, #{user.firstname}!"
+		session["user_id"] = @user.id
+		flash.now[:notice] = "Welcome to chittr, #{@user.firstname}!"
 		haml :index
 	end
 
-	get '/signin' do
+	get '/login' do
 		haml :user_signin
 	end
+
+	post '/login' do
+		@user = User.first(:username => params[:"Username"])
+		flash.now[:notice] = "Welcome back, #{@user.firstname}"
+		haml :index
+	end
+
 
 run! if app_file == $0
 

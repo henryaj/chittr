@@ -1,2 +1,5 @@
-%a{:href => "/users/new"} Sign up
-%a{:href => "/login"} Sign in
+- unless @user
+	%a{:href => "/users/new"} Sign up
+	%a{:href => "/login"} Sign in
+- if @user
+	%a{:href => "/logout"} Sign out
