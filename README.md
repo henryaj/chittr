@@ -9,7 +9,7 @@ A Twitter clone in Ruby and Sinatra.
 
 * Ruby
 * Sinatra
-* Postgres
+* Postgres and DataMapper
 * Twitter Bootstrap
 
 For testing:
