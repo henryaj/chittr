@@ -5,4 +5,6 @@
 	%a{:href => "/logout"} Sign out
 	%a{:href => "/new"} Post cheet
 
-%p= @post_bodies
+/ %ul
+/ 	- @posts_array.each do |post|
+/ 		%li =post.body

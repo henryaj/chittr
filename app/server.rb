@@ -21,8 +21,7 @@ class Chittr < Sinatra::Base
 		current_uid = session['user_id']
 		current_user = User.first(:id => current_uid)
 		@user = current_user
-		@posts = Post.all
-	  @post_bodies = @posts.map {|p| p.body}
+		@posts_array = Post.all
 	  haml :index
 	end
 
