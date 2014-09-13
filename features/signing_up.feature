@@ -18,7 +18,7 @@ Feature: Signing up to Chittr
 	  Then I should see "Welcome to chittr, Henry!"
   
   Scenario: Mismatching passwords on signup
-	  Given PENDING: I am on the signup page
+	  Given I am on the signup page
   	When I fill in and submit the signup form with non-matching passwords
 	  Then I should see "Your password and password confirmation didn't match."
   

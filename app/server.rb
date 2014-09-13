@@ -31,15 +31,19 @@ class Chittr < Sinatra::Base
 	end
 
 	post '/users/new' do
-		@user = User.create(:firstname => params[:"First Name"],
-											 :lastname => params[:"Last Name"],
-											 :email => params[:"Email"],
-											 :username => params[:"Username"],
-											 :password => params[:"Password"],
-											 :password_confirmation => params[:"Password Confirmation"])
-		session["user_id"] = @user.id
-		flash.now[:notice] = "Welcome to chittr, #{@user.firstname}!"
-		haml :index
+		if params[:"Password"] == params[:"Password Confirmation"]
+			@user = User.create(:firstname => params[:"First Name"],
+												 :lastname => params[:"Last Name"],
+												 :email => params[:"Email"],
+												 :username => params[:"Username"],
+												 :password => params[:"Password"],
+												 :password_confirmation => params[:"Password Confirmation"])
+			session["user_id"] = @user.id
+			flash.now[:notice] = "Welcome to chittr, #{@user.firstname}!"
+			haml :index
+		else
+			flash[:error] = "Your password and password confirmation didn't match."
+		end
 	end
 
 	get '/login' do
