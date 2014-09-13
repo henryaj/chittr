@@ -21,3 +21,11 @@ When(/^I fill in my login details$/) do
   page.find(:link_or_button, 'submit')
   click_on 'submit'
 end
+
+When(/^I fill in my login details with the wrong password$/) do
+  visit '/login'
+  fill_in "Username", :with => "henryaj"
+  fill_in "Password", :with => "party_party"
+  page.find(:link_or_button, 'submit')
+  click_on 'submit'
+end

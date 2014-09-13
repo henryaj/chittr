@@ -51,7 +51,7 @@ class Chittr < Sinatra::Base
 	end
 
 	post '/login' do
-		@user = User.first(:username => params[:"Username"])
+		@user = User.authenticate(params[:"Username"], params[:"Password"])
 		unless @user == nil
 			session["user_id"] = @user.id
 			flash.now[:notice] = "Welcome back, #{@user.firstname}."
