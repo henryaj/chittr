@@ -28,6 +28,7 @@ Feature: Posting to chittr
     When I fill in "New Cheet" with "Hey, I'm on Chittr!"
     And I click "Submit"
     Then I should be on the home page
+    And I should see "Your cheet has been posted."
     And I should see "Hey, I'm on Chittr!"
 
   

@@ -14,4 +14,10 @@ describe User do
 		expect(user.password_digest).to eq "12345" # uses bcrypt == for comparison
 	end
 
+	xit 'should have a unique email address' do
+	end
+
+	xit 'should have a unique username' do
+	end
+
 end

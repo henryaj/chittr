@@ -14,6 +14,8 @@ class User
 	property :username, String
 	property :password_digest, Text
 
+	has n, :posts
+
 	validates_confirmation_of :password
 
 	def password=(password)

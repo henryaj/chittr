@@ -1,4 +1,3 @@
-
 require 'rubygems'
 require 'sinatra/base'
 require 'sinatra/flash'
@@ -8,6 +7,7 @@ require 'haml'
 DataMapper.setup(:default, "postgres://localhost/chittr")
 
 require_relative './models/user'
+require_relative './models/post'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
@@ -21,6 +21,8 @@ class Chittr < Sinatra::Base
 		current_uid = session['user_id']
 		current_user = User.first(:id => current_uid)
 		@user = current_user
+		@posts = Post.all
+	  @post_bodies = @posts.map {|p| p.body}
 	  haml :index
 	end
 
@@ -46,8 +48,13 @@ class Chittr < Sinatra::Base
 
 	post '/login' do
 		@user = User.first(:username => params[:"Username"])
-		flash.now[:notice] = "Welcome back, #{@user.firstname}."
-		haml :index
+		unless @user == nil
+			session["user_id"] = @user.id
+			flash.now[:notice] = "Welcome back, #{@user.firstname}."
+			haml :index
+		else
+			flash[:error] = "There was something wrong with your credentials. Please try again."
+		end
 	end
 
 	get '/logout' do
@@ -59,6 +66,12 @@ class Chittr < Sinatra::Base
 
 	get '/new' do
 		haml :newcheet
+	end
+
+	post '/new' do
+		Post.create(:body => params["New Cheet"], :user_id => session["user_id"])
+		flash[:notice] = "Your cheet has been posted."
+		redirect to '/'
 	end
 
 
