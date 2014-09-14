@@ -1,10 +1,3 @@
-- unless @user
-	%a{:href => "/users/new"} Sign up
-	%a{:href => "/login"} Sign in
-- if @user
-	%a{:href => "/logout"} Sign out
-	%a{:href => "/new"} Post cheet
-
 / %ul
 / 	- @posts_array.each do |post|
 / 		%li =post.body
