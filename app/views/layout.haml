@@ -20,14 +20,15 @@
 					%ul.nav.navbar-nav.navbar-right
 						- unless @user
 							%li
-								%a{:href => "/users/new"} Sign up
-							%li
 								%a{:href => "/login"} Sign in
+							%li
+								%a{:href => "/users/new"} Sign up
 						- if @user
 							%li
-								%a{:href => "/logout"} Sign out
-							%li
 								%a{:href => "/new"} Post cheet
+							%li
+								%a{:href => "/logout"} Sign out
+							%p{:class => "navbar-text navbar-right"} Signed in as #{@user.username}
 						/ %li
 						/ 	%a{:href => "#about"} About
 						/ %li

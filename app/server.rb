@@ -18,8 +18,7 @@ class Chittr < Sinatra::Base
 	register Sinatra::Flash
 
 	get '/' do
-		current_uid = session['user_id']
-		current_user = User.first(:id => current_uid)
+		current_user = User.first(:id => session["user_id"])
 		@user = current_user
 		@posts_array = Post.all
 	  haml :index
@@ -62,7 +61,7 @@ class Chittr < Sinatra::Base
 
 	get '/logout' do
 		@user = User.first(:id => session["user_id"])
-		flash.now[:notice] = "See you later, #{@user.firstname}."
+		flash.now[:notice] = "See you later."
 		session["user_id"] = nil
 		haml :index
 	end
