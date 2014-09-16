@@ -11,7 +11,7 @@ Feature: Signing out of the site
     Given I have signed up
     And I fill in my login details
     When I follow "Sign out"
-    Then I should see "See you later, Henry."
+    Then I should see "See you later."
   
   
   
