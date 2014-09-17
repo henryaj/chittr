@@ -31,7 +31,14 @@ Feature: Posting to chittr
     And I should see "Your cheet has been posted."
     And I should see "Hey, I'm on Chittr!"
 
-  
+  Scenario: Viewing tweets as a non-member
+    Given I am a logged in user
+    And I am on the new cheet page
+    When I fill in "New Cheet" with "Hey, I'm on Chittr!"
+    And I click "Submit"
+    And I follow "Sign out"
+    Then I should be on the home page
+    Then I should see "Hey, I'm on Chittr!"  
   
   
 
