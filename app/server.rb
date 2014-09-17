@@ -4,7 +4,9 @@ require 'sinatra/flash'
 require 'data_mapper'
 require 'haml'
 
-DataMapper.setup(:default, "postgres://localhost/chitr")
+db_path = ENV['DATABASE_URL'] || "postgres://localhost/chitr"
+
+DataMapper.setup(:default, db_path)
 
 require_relative './models/user'
 require_relative './models/post'
