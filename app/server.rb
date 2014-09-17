@@ -37,8 +37,8 @@ class Chittr < Sinatra::Base
 												 :password => params[:"Password"],
 												 :password_confirmation => params[:"Password Confirmation"])
 			session["user_id"] = @user.id
-			flash.now[:notice] = "Welcome to chittr, #{@user.firstname}!"
-			haml :index
+			flash[:notice] = "Welcome to chittr, #{@user.firstname}!"
+			redirect to '/'
 		else
 			flash[:error] = "Your password and password confirmation didn't match."
 		end
@@ -52,8 +52,8 @@ class Chittr < Sinatra::Base
 		@user = User.authenticate(params[:"Username"], params[:"Password"])
 		unless @user == nil
 			session["user_id"] = @user.id
-			flash.now[:notice] = "Welcome back, #{@user.firstname}."
-			haml :index
+			flash[:notice] = "Welcome back, #{@user.firstname}."
+			redirect to '/'
 		else
 			flash[:error] = "There was something wrong with your credentials. Please try again."
 		end
@@ -61,9 +61,9 @@ class Chittr < Sinatra::Base
 
 	get '/logout' do
 		@user = User.first(:id => session["user_id"])
-		flash.now[:notice] = "See you later."
+		flash[:notice] = "See you later."
 		session["user_id"] = nil
-		haml :index
+		redirect to '/'
 	end
 
 	get '/new' do
