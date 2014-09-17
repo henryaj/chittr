@@ -1,0 +1,18 @@
+.postcontainer {
+  background:#FFF;
+  border:1px solid #AAA;
+  border-bottom:3px solid #BBB;
+  padding:20px;
+  margin-bottom:15px;
+  /*margin-left:0px;*/
+  /*margin-right:0px;*/
+  /*overflow:hidden;*/
+  border-radius: 10px;
+  font-size: 20px;
+  list-style: none;
+}
+
+li.user {
+	float: right;
+	color: gray;
+}

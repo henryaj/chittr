@@ -1,3 +1,8 @@
+%h1 A little service for people with something to say.
+%br
 %ul
 	- @posts_array.each do |post|
-		%li=post.body
+		%ul.postcontainer
+			/ %li.created_at=post.created_at
+			%li.user=post.user.username
+			%li=post.body

@@ -4,6 +4,7 @@
 		%title Chittr
 		%link{:rel => "stylesheet", :href => "/css/bootstrap.css"}
 		%link{:rel => "stylesheet", :href => "/css/bootstrap-theme.css"}
+		%link{:rel => "stylesheet", :href => "/css/css.css"}
 		%link{:href => 'http://fonts.googleapis.com/css?family=Roboto:400italic,700italic,300,700,300italic,400', :rel => 'stylesheet', :type => 'text/css'}
 		%script{:src => "/js/bootstrap.min.js"}
 	%body
@@ -41,6 +42,10 @@
 		%br/
 		%br/
 		.container
-			=flash[:error]
-			=flash[:notice]
+			-if flash[:error]
+				.alert.alert-warning
+					=flash[:error]
+			-if flash[:notice]
+				.alert.alert-info
+					=flash[:notice]
 			=yield

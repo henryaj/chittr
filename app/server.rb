@@ -20,7 +20,7 @@ class Chittr < Sinatra::Base
 	get '/' do
 		current_user = User.first(:id => session["user_id"])
 		@user = current_user
-		@posts_array = Post.all
+		@posts_array = Post.all.reverse
 	  haml :index
 	end
 
