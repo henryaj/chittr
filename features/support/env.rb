@@ -10,14 +10,14 @@ require 'rspec'
 require 'haml'
 require 'sinatra/flash'
 
-Capybara.app = Chittr
+Capybara.app = Chitr
 
-class ChittrWorld
+class ChitrWorld
   include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
 end
 
 World do
-  ChittrWorld.new
+  ChitrWorld.new
 end

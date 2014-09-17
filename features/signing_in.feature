@@ -1,5 +1,5 @@
 Feature: Signing in as an existing user
-	In order to use chittr
+	In order to use chitr
 	As a member of the site
 	I should be able to sign in
 

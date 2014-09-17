@@ -1,7 +1,7 @@
-Feature: Posting to chittr
+Feature: Posting to chitr
   In order to communicate with other members
   As a member of the site
-  I want to post to chittr
+  I want to post to chitr
 
   Scenario: On the home page
     Given I have signed up
@@ -25,20 +25,20 @@ Feature: Posting to chittr
   Scenario: Posting a new cheet
     Given I am a logged in user
     And I am on the new cheet page
-    When I fill in "New Cheet" with "Hey, I'm on Chittr!"
+    When I fill in "New Cheet" with "Hey, I'm on Chitr!"
     And I click "Submit"
     Then I should be on the home page
     And I should see "Your cheet has been posted."
-    And I should see "Hey, I'm on Chittr!"
+    And I should see "Hey, I'm on Chitr!"
 
   Scenario: Viewing tweets as a non-member
     Given I am a logged in user
     And I am on the new cheet page
-    When I fill in "New Cheet" with "Hey, I'm on Chittr!"
+    When I fill in "New Cheet" with "Hey, I'm on Chitr!"
     And I click "Submit"
     And I follow "Sign out"
     Then I should be on the home page
-    Then I should see "Hey, I'm on Chittr!"  
+    Then I should see "Hey, I'm on Chitr!"  
   
   
 

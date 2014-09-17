@@ -1,2 +1,2 @@
 require './app/server.rb'
-run Chittr
+run Chitr

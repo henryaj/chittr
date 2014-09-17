@@ -1,7 +1,7 @@
 | [*Makers Academy*](http://www.makersacademy.com) | Week 6 |
 | ------------------------------------------------ | ------ |
 
-# Chittr
+# Chitr
 
 A Twitter clone in Ruby and Sinatra.
 

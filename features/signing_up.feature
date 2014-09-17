@@ -1,5 +1,5 @@
-Feature: Signing up to Chittr
-  In order to use Chittr
+Feature: Signing up to Chitr
+  In order to use Chitr
   As a member of the site
   I want to be able to sign up
 
@@ -15,7 +15,7 @@ Feature: Signing up to Chittr
   Scenario: Filling in the signup form
   	Given I am on the signup page
   	When I fill in and submit the signup form
-	  Then I should see "Welcome to chittr, Henry!"
+	  Then I should see "Welcome to chitr, Henry!"
   
   Scenario: Mismatching passwords on signup
 	  Given I am on the signup page

@@ -4,7 +4,7 @@ require 'sinatra/flash'
 require 'data_mapper'
 require 'haml'
 
-DataMapper.setup(:default, "postgres://localhost/chittr")
+DataMapper.setup(:default, "postgres://localhost/chitr")
 
 require_relative './models/user'
 require_relative './models/post'
@@ -12,7 +12,7 @@ require_relative './models/post'
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-class Chittr < Sinatra::Base
+class Chitr < Sinatra::Base
 
 	enable :sessions
 	register Sinatra::Flash
@@ -37,7 +37,7 @@ class Chittr < Sinatra::Base
 												 :password => params[:"Password"],
 												 :password_confirmation => params[:"Password Confirmation"])
 			session["user_id"] = @user.id
-			flash[:notice] = "Welcome to chittr, #{@user.firstname}!"
+			flash[:notice] = "Welcome to chitr, #{@user.firstname}!"
 			redirect to '/'
 		else
 			flash[:error] = "Your password and password confirmation didn't match."
