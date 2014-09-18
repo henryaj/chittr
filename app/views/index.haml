@@ -1,4 +1,7 @@
-%h1 A little service for people with something to say.
+- if !@user
+	%link{:rel => "stylesheet", :href => "/css/fadein.css"}
+	%h1
+		%center A little service for people with something to say.
 %br
 %ul
 	- @posts_array.each do |post|

@@ -58,6 +58,7 @@ class Chitr < Sinatra::Base
 			redirect to '/'
 		else
 			flash[:error] = "There was something wrong with your credentials. Please try again."
+			redirect to '/'
 		end
 	end
 
