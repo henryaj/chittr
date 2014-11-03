@@ -3,9 +3,9 @@
 
 # Chitr
 
-**A Twitter clone in Ruby and Sinatra.**
+![Chitr screenshot](screenshot.jpg)
 
-[![Chitr screenshot](screenshot.jpg)]
+**A Twitter clone in Ruby and Sinatra.**
 
 A weekend challenge at Makers Academy – we were simply told to "build Twitter" and given a list of specifications to use as a starting point for our feature tests. Quite daunting! But here it is – a very simple Twitter clone, fully test-driven using Cucumber, Capybara and RSpec, written in Ruby and using Sinatra.
 
