@@ -18,3 +18,13 @@ task :auto_migrate do
   DataMapper.auto_migrate!
   puts "Auto-migrate complete (data could have been lost)"
 end
+
+task :travis do
+  ["rspec", "cucumber"].each do |cmd|
+    puts "Starting to run #{cmd}..."
+    system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+    raise "#{cmd} failed!" unless $?.exitstatus == 0
+  end
+end
+
+task default: %w[travis]
